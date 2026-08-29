@@ -1,0 +1,1374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pomodoro GP</title>
+<meta name="description" content="Pomodoro GP — a racing-style pomodoro timer. Focus stints lap a glowing Monaco street circuit, with lights-out starts, tyre degradation and a chequered-flag finish.">
+<meta property="og:title" content="Pomodoro GP">
+<meta property="og:description" content="A racing-style pomodoro timer — focus stints lap a glowing circuit, breaks are cooldown laps, finishing the race throws the chequered flag.">
+<meta property="og:image" content="https://YOUR-USERNAME.github.io/pomodoro-gp/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://YOUR-USERNAME.github.io/pomodoro-gp/social-card.png">
+<meta name="theme-color" content="#0b0b10">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏁</text></svg>">
+</head>
+<body>
+<style>
+@font-face{
+  font-family:'PW Black';
+  src:local('Formula1 Display Black'),local('Formula1-Display-Black'),local('Formula1Display-Black'),url(data:font/woff2;base64,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) format('woff2');
+  font-weight:900;font-style:normal;font-display:block;
+}
+@font-face{
+  font-family:'PW Text';
+  src:local('Formula1 Display Regular'),local('Formula1-Display-Regular'),local('Formula1Display-Regular'),url(data:font/woff2;base64,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) format('woff2');
+  font-weight:400;font-style:normal;font-display:block;
+}
+:root{
+  --ground:#0b0b10;
+  --panel:#14141f;
+  --panel-2:#1a1a28;
+  --line:#26263a;
+  --text:#f2f0ec;
+  --muted:#8b8b9a;
+  --faint:#55556a;
+  --team:#ff8000;
+  --team-glow:rgba(255,128,0,.55);
+  --team-soft:rgba(255,128,0,.14);
+  --accent:#47c7fc;
+  --card:#101018;
+  --card-edge:#000;
+  --danger:#e84141;
+  --flip-ms:520ms;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:var(--ground);
+  color:var(--text);
+  font-family:'PW Text','Titillium Web',system-ui,-apple-system,'Segoe UI',sans-serif;
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+.app{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  height:100vh;
+  min-height:560px;
+}
+
+/* ============ LEFT : CIRCUIT ============ */
+.circuit-pane{
+  position:relative;
+  background:
+    radial-gradient(120% 90% at 30% 20%, var(--team-soft) 0%, transparent 55%),
+    var(--ground);
+  border-right:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  transition:background .8s ease;
+}
+.circuit-pane::after{ /* asphalt grain */
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(transparent 0 97%, rgba(255,255,255,.022) 97%),
+    linear-gradient(90deg, transparent 0 97%, rgba(255,255,255,.022) 97%);
+  background-size:44px 44px;
+  mask-image:radial-gradient(80% 80% at 50% 45%, #000 30%, transparent 100%);
+}
+.gp-header{
+  padding:34px 40px 0;
+  position:relative;z-index:2;
+}
+.gp-eyebrow{
+  font-size:11px;letter-spacing:.34em;color:var(--team);
+  text-transform:uppercase;
+  display:flex;align-items:center;gap:12px;
+  transition:color .5s ease;
+}
+.gp-eyebrow::before{
+  content:'';width:26px;height:2px;background:var(--team);
+  transition:background .5s ease;
+}
+.gp-title{
+  font-family:var(--dispfont,'PW Black'),'PW Black','PW Text',sans-serif;
+  font-size:clamp(26px,3vw,40px);
+  letter-spacing:.02em;
+  margin-top:10px;
+  text-transform:uppercase;
+}
+.gp-sub{
+  font-size:11px;letter-spacing:.22em;color:var(--muted);
+  text-transform:uppercase;margin-top:10px;
+}
+.track-wrap{
+  flex:1;position:relative;z-index:1;
+  min-height:0;
+  padding:12px 28px 8px;
+}
+.track-wrap svg{width:100%;height:100%;display:block;overflow:visible}
+#trackGhost{
+  fill:none;stroke:var(--line);stroke-width:10;
+  stroke-linejoin:round;stroke-linecap:round;
+  opacity:.55;
+}
+#trackShadow{
+  fill:none;stroke:#000;stroke-width:7;opacity:.38;
+  stroke-linejoin:round;stroke-linecap:round;
+  filter:url(#softBlur);
+}
+/* ribbon side wall in two bands: bright near the racing line, fading with depth —
+   follows the ribbon itself, so the extrusion reads 3D at every point of the lap */
+#trackWallHi{fill:var(--team);opacity:.34;stroke:none;transition:fill .5s ease}
+#trackWallLo{fill:var(--team);opacity:.12;stroke:none;transition:fill .5s ease}
+#trackPulse{
+  fill:none;stroke:#fff;stroke-width:2.4;opacity:.85;
+  stroke-linecap:round;pointer-events:none;
+  filter:drop-shadow(0 0 4px rgba(255,255,255,.65));
+}
+#cornerLines line{stroke:var(--faint);stroke-width:1;opacity:.8}
+#corners circle{fill:var(--team);transition:fill .5s ease}
+#corners text{
+  font-family:'PW Text',sans-serif;font-size:9.5px;
+  fill:var(--muted);letter-spacing:1.5px;
+}
+#sfGroup line{stroke:var(--faint);stroke-width:1}
+#sfGroup text{
+  font-family:'PW Text',sans-serif;font-size:9.5px;
+  fill:var(--muted);letter-spacing:1.5px;
+}
+#trackDraw{
+  fill:none;stroke:var(--team);stroke-width:3.2;
+  stroke-linejoin:round;stroke-linecap:round;
+  filter:drop-shadow(0 0 6px var(--team-glow));
+  transition:stroke .5s ease;
+}
+#carDot{
+  fill:#fff;
+  filter:drop-shadow(0 0 7px var(--team-glow)) drop-shadow(0 0 14px var(--team-glow));
+}
+#carRing{
+  fill:none;stroke:var(--team);stroke-width:1.6;opacity:.9;
+  transition:stroke .5s ease;
+}
+.trail circle{fill:var(--team);transition:fill .5s ease}
+.telemetry{
+  position:relative;z-index:2;
+  display:flex;gap:0;
+  border-top:1px solid var(--line);
+}
+.tele-cell{
+  flex:1;padding:16px 12px 20px;text-align:center;
+  border-right:1px solid var(--line);
+}
+.tele-cell:last-child{border-right:none}
+.tele-label{
+  font-size:10px;letter-spacing:.26em;color:var(--faint);
+  text-transform:uppercase;margin-bottom:7px;
+}
+.tele-value{
+  font-family:var(--dispfont,'PW Black'),'PW Black','PW Text',sans-serif;
+  font-size:clamp(16px,1.6vw,22px);
+  letter-spacing:.04em;
+  font-variant-numeric:tabular-nums;
+}
+.tele-value .unit{font-size:11px;color:var(--muted);letter-spacing:.1em}
+
+/* start lights overlay */
+.lights{
+  position:absolute;top:40%;left:50%;transform:translateX(-50%);
+  z-index:5;display:flex;gap:14px;
+  background:#08080c;
+  border:1px solid var(--line);
+  border-radius:10px;padding:14px 18px;
+  opacity:0;pointer-events:none;
+  transition:opacity .25s ease;
+}
+.lights.show{opacity:1}
+.light{
+  width:clamp(20px,2.4vw,30px);height:clamp(20px,2.4vw,30px);border-radius:50%;
+  background:#1c1218;border:1px solid #2c1a20;
+  transition:background .12s ease, box-shadow .12s ease;
+}
+.light.on{
+  background:#ff1801;
+  box-shadow:0 0 14px rgba(255,24,1,.8),0 0 34px rgba(255,24,1,.45);
+}
+
+/* ============ RIGHT : TIMER ============ */
+.timer-pane{
+  position:relative;
+  display:flex;flex-direction:column;
+  background:var(--ground);
+  overflow:hidden;
+}
+.timer-pane::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(90% 70% at 70% 85%, var(--team-soft) 0%, transparent 60%);
+  transition:background .8s ease;
+}
+.team-row{
+  display:flex;align-items:center;gap:8px;
+  padding:26px 84px 0 40px;position:relative;z-index:2;
+  flex-wrap:wrap;
+  min-height:64px;
+}
+.chip{
+  appearance:none;border:1px solid var(--line);
+  background:var(--panel);color:var(--muted);
+  font-family:'PW Text',sans-serif;
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  padding:9px 13px;border-radius:999px;cursor:pointer;
+  display:flex;align-items:center;gap:8px;
+  transition:border-color .25s,color .25s,background .25s;
+}
+.chip .swatch{width:9px;height:9px;border-radius:50%;background:var(--c,#888)}
+.chip:hover{color:var(--text);border-color:var(--faint)}
+.chip:focus-visible{outline:2px solid var(--team);outline-offset:2px}
+.chip.active{
+  color:var(--text);
+  border-color:var(--team);
+  background:var(--team-soft);
+}
+.chip.random.armed{border-color:var(--team);color:var(--text)}
+.session-strip{
+  padding:30px 40px 0;position:relative;z-index:2;
+  display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+}
+.phase-label{
+  font-family:var(--dispfont,'PW Black'),'PW Black','PW Text',sans-serif;
+  font-size:clamp(18px,1.9vw,26px);
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--team);
+  transition:color .5s ease;
+}
+.stint-count{
+  font-size:11px;letter-spacing:.24em;color:var(--muted);text-transform:uppercase;
+}
+/* flip clock */
+.clock{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:center;
+  gap:clamp(8px,1.2vw,16px);
+  padding:clamp(18px,4vh,42px) 24px;
+  flex:1;min-height:0;
+}
+.flip-group{display:flex;gap:clamp(6px,.8vw,10px)}
+.flip{
+  --H:clamp(112px,13.8vw,210px);
+  position:relative;
+  width:clamp(80px,9.6vw,150px);
+  height:var(--H);
+  perspective:900px;
+  font-family:var(--dispfont,'PW Black'),'PW Black','PW Text',sans-serif;
+  font-size:calc(var(--H) * .62);
+  border-radius:10px;
+  filter:drop-shadow(0 12px 26px rgba(0,0,0,.55));
+}
+/* every piece is a full-size card with the digit centered identically;
+   only the clip differs — alignment can never drift */
+.piece{
+  position:absolute;inset:0;
+  border-radius:10px;
+  background:linear-gradient(180deg,#191925 0%,#12121c 49.5%,#0d0d15 50.5%,#15151f 100%);
+  line-height:var(--H);text-align:center;
+  color:var(--text);
+  font-variant-numeric:tabular-nums;
+  backface-visibility:hidden;
+}
+.piece i{font-style:normal;position:relative;top:var(--inknudge,-.0326em)} /* optical correction: centre the ink, not the em box */
+.piece.top{clip-path:inset(0 0 50% 0 round 10px)}
+.piece.bottom{clip-path:inset(50% 0 0 0 round 10px)}
+.flip .flap-top,.flip .flap-bottom{z-index:3}
+.flip .flap-top{transform-origin:50% 50%;transform:rotateX(0)}
+.flip .flap-bottom{transform-origin:50% 50%;transform:rotateX(90deg)}
+.flip.go .flap-top{
+  animation:foldTop calc(var(--flip-ms) * .5) ease-in forwards;
+}
+.flip.go .flap-bottom{
+  animation:foldBottom calc(var(--flip-ms) * .5) ease-out calc(var(--flip-ms) * .5) forwards;
+}
+@keyframes foldTop{
+  0%{transform:rotateX(0);filter:brightness(1)}
+  100%{transform:rotateX(-90deg);filter:brightness(.6)}
+}
+@keyframes foldBottom{
+  0%{transform:rotateX(90deg);filter:brightness(.55)}
+  100%{transform:rotateX(0);filter:brightness(1)}
+}
+.flip::after{ /* hinge */
+  content:'';position:absolute;left:6%;right:6%;top:50%;height:1px;
+  background:rgba(0,0,0,.9);z-index:6;transform:translateY(-.5px);
+}
+.colon{
+  display:flex;flex-direction:column;gap:clamp(14px,2vw,26px);
+  padding:0 clamp(2px,.4vw,6px);
+}
+.colon i{
+  width:clamp(9px,1vw,14px);height:clamp(9px,1vw,14px);border-radius:2px;
+  background:var(--team);
+  box-shadow:0 0 10px var(--team-glow);
+  transition:background .5s ease, opacity .3s ease;
+}
+.colon.dim i{opacity:.25;box-shadow:none}
+/* progress + controls */
+.progress-zone{padding:0 40px;position:relative;z-index:2}
+.progress{
+  height:4px;border-radius:2px;background:var(--panel-2);
+  overflow:hidden;
+}
+.progress .bar{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,var(--team),var(--accent));
+  border-radius:2px;
+  transition:width .5s linear, background .5s ease;
+}
+.session-lights{
+  display:flex;gap:10px;justify-content:center;margin-top:18px;
+}
+.slight{
+  width:12px;height:12px;border-radius:50%;
+  background:var(--panel-2);border:1px solid var(--line);
+  transition:background .3s,box-shadow .3s;
+}
+.slight.done{
+  background:var(--team);
+  box-shadow:0 0 8px var(--team-glow);
+  border-color:transparent;
+}
+.controls{
+  display:grid;grid-template-columns:1fr auto 1fr; /* primary button sits at the exact pane centre */
+  gap:12px;align-items:center;
+  padding:26px 40px 34px;position:relative;z-index:2;
+}
+.controls .ghost:first-child{justify-self:end}
+.controls .ghost:last-child{justify-self:start}
+button.ctl{
+  appearance:none;cursor:pointer;
+  font-family:var(--dispfont,'PW Black'),'PW Black','PW Text',sans-serif;
+  text-transform:uppercase;letter-spacing:.14em;
+  border-radius:8px;
+  transition:transform .15s ease, box-shadow .25s ease, background .25s ease, color .25s, border-color .25s;
+}
+button.ctl:active{transform:translateY(1px)}
+button.ctl:focus-visible{outline:2px solid var(--team);outline-offset:3px}
+.ctl.primary{
+  font-size:clamp(13px,1.2vw,16px);
+  padding:16px 34px;
+  border:none;color:#0b0b10;
+  background:var(--team);
+  box-shadow:0 6px 24px var(--team-glow);
+}
+.ctl.primary:hover{filter:brightness(1.08)}
+.ctl.ghost{
+  font-family:'PW Text',sans-serif;font-weight:600;
+  font-size:11px;padding:14px 20px;
+  background:transparent;color:var(--muted);
+  border:1px solid var(--line);
+}
+.ctl.ghost:hover{color:var(--text);border-color:var(--faint)}
+/* settings */
+.fineprint{
+  position:relative;z-index:2;text-align:center;
+  padding:0 40px 14px;font-size:9px;letter-spacing:.18em;
+  color:var(--faint);text-transform:uppercase;
+}
+.gear{
+  position:absolute;top:26px;right:28px;z-index:12;
+  width:38px;height:38px;border-radius:50%;
+  border:1px solid var(--line);background:var(--panel);
+  color:var(--muted);cursor:pointer;font-size:15px;
+  display:flex;align-items:center;justify-content:center;
+  transition:color .2s,border-color .2s, transform .4s ease;
+}
+.gear:hover{color:var(--text);border-color:var(--faint);transform:rotate(60deg)}
+.gear:focus-visible{outline:2px solid var(--team);outline-offset:2px}
+.drawer{
+  position:absolute;right:0;top:0;bottom:0;width:min(330px,86%);
+  background:var(--panel);border-left:1px solid var(--line);
+  z-index:10;padding:26px 26px 30px;
+  transform:translateX(105%);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  display:flex;flex-direction:column;gap:6px;
+  box-shadow:-20px 0 60px rgba(0,0,0,.5);
+}
+.drawer.open{transform:translateX(0)}
+.drawer h2{
+  font-family:var(--dispfont,'PW Black'),'PW Black',sans-serif;font-size:15px;
+  letter-spacing:.12em;text-transform:uppercase;
+  display:flex;align-items:center;min-height:38px;
+  margin:0 46px 14px 0;
+}
+.set-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:13px 0;border-bottom:1px solid var(--line);
+}
+.drawer .lbl{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.stepper{display:flex;align-items:center;gap:10px}
+.stepper button{
+  width:28px;height:28px;border-radius:6px;cursor:pointer;
+  border:1px solid var(--line);background:var(--panel-2);color:var(--text);
+  font-family:'PW Text',sans-serif;font-size:14px;
+  transition:border-color .2s;
+}
+.stepper button:hover{border-color:var(--team)}
+.stepper button:focus-visible{outline:2px solid var(--team);outline-offset:1px}
+.stepper .val{
+  font-family:var(--dispfont,'PW Black'),'PW Black',sans-serif;font-size:15px;min-width:44px;text-align:center;
+  font-variant-numeric:tabular-nums;
+}
+.stepper .val .unit{font-size:9px;color:var(--muted);display:block;letter-spacing:.1em}
+.drawer .close-note{margin-top:auto;font-size:10px;letter-spacing:.14em;color:var(--faint);text-transform:uppercase;text-align:center}
+.fontbtns{display:flex;gap:10px}
+.fontbtns button{
+  height:28px;padding:0 12px;border-radius:6px;cursor:pointer;
+  border:1px solid var(--line);background:var(--panel-2);color:var(--text);
+  font-family:'PW Text',sans-serif;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;
+  transition:border-color .2s;
+}
+.fontbtns button:hover{border-color:var(--team)}
+.fontbtns button.active{border-color:var(--team);color:var(--team)}
+.fontbtns button:focus-visible{outline:2px solid var(--team);outline-offset:1px}
+.mute-row{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line)}
+.toggle{
+  width:42px;height:22px;border-radius:999px;background:var(--panel-2);
+  border:1px solid var(--line);position:relative;cursor:pointer;transition:background .25s;
+}
+.toggle::after{
+  content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;
+  background:var(--muted);transition:left .25s,background .25s;
+}
+.toggle.on{background:var(--team-soft);border-color:var(--team)}
+.toggle.on::after{left:22px;background:var(--team)}
+.toggle:focus-visible{outline:2px solid var(--team);outline-offset:2px}
+
+@media (max-width:880px){
+  body{overflow:auto}
+  .app{grid-template-columns:1fr;grid-template-rows:46vh auto;height:auto;min-height:100vh}
+  .circuit-pane{border-right:none;border-bottom:1px solid var(--line)}
+  .gp-header{padding:22px 24px 0}
+  .team-row,.session-strip,.progress-zone{padding-left:24px;padding-right:24px}
+  .team-row{padding-right:76px}
+  .controls{padding:22px 24px 30px}
+  .telemetry{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .flip.go .flap-top,.flip.go .flap-bottom{animation-duration:1ms;animation-delay:0ms}
+  #trackDraw{transition:none}
+  .trail{display:none}
+}
+</style>
+
+<div class="app">
+  <!-- ================= LEFT ================= -->
+  <section class="circuit-pane" aria-label="Circuit">
+    <header class="gp-header">
+      <div class="gp-eyebrow" id="gpEyebrow"></div>
+      <h1 class="gp-title" id="gpTitle"></h1>
+      <div class="gp-sub"><span id="subInfo"></span> <span id="lapEst"></span></div>
+    </header>
+
+    <div class="lights" id="lights" aria-hidden="true">
+      <div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div>
+    </div>
+
+    <div class="track-wrap">
+      <svg id="trackSvg" viewBox="60 15 380 470" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <filter id="softBlur" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="3"/>
+          </filter>
+          <pattern id="checkers" width="4" height="4" patternUnits="userSpaceOnUse">
+            <rect width="4" height="4" fill="#e8e6e0"/>
+            <rect width="2" height="2" fill="#15151f"/>
+            <rect x="2" y="2" width="2" height="2" fill="#15151f"/>
+          </pattern>
+        </defs>
+        <path id="trackSrc" d="M 82.6,317.82 L 82.24,303.08 L 83.32,287.37 L 84.21,279.53 L 86.18,267.84 L 87.61,261.44 L 89.09,255.44 L 90.21,251.5 L 91.29,247.96 L 92.14,245.37 L 94.11,240.75 L 95.49,238.6 L 99.61,235.69 L 101.67,234.98 L 108.97,233.5 L 114.21,233.01 L 119.81,232.51 L 124.91,232.07 L 131.14,231.35 L 138.62,230.14 L 144.53,228.89 L 153.71,226.69 L 160.06,225.13 L 164.9,223.92 L 175.96,221.14 L 184.83,218.81 L 191.54,217.33 L 199.92,216.04 L 206.1,215.5 L 211.65,214.96 L 218.9,213.71 L 227.77,210.48 L 233.63,207.62 L 238.92,204.89 L 244.83,202.11 L 254.63,198.35 L 260.99,196.56 L 264.26,195.84 L 270.84,194.72 L 286.25,192.84 L 296.86,190.92 L 303.13,188.86 L 309.26,185.77 L 313.34,182.99 L 317.82,178.74 L 322.07,172.29 L 323.32,169.2 L 324.71,162.3 L 324.71,160.56 L 324.58,155.63 L 322.83,147.93 L 319.56,140.72 L 316.97,136.56 L 315.35,134.36 L 312.26,130.51 L 309.76,127.47 L 307.38,124.51 L 303.89,118.38 L 303.93,107.32 L 306.85,100.73 L 307.88,98.94 L 311.19,94.06 L 314.01,90.48 L 316.52,87.66 L 321.49,82.2 L 324.49,78.79 L 329.64,72.08 L 333.98,65.63 L 336.53,61.91 L 343.97,51.93 L 346.61,48.66 L 350.46,44.13 L 354.04,40.24 L 356.37,38.18 L 359.95,36.3 L 362.01,36.21 L 363.58,36.52 L 365.68,37.42 L 367.65,38.85 L 369.04,40.42 L 370.03,42.07 L 371.06,44.9 L 371.73,47.45 L 372.67,51.25 L 373.38,53.72 L 373.97,55.55 L 375.58,60.08 L 378.13,65.9 L 380.19,69.79 L 382.03,72.57 L 384.8,75.7 L 386.42,76.91 L 387.22,77.36 L 388.97,77.99 L 391.7,77.72 L 392.86,76.55 L 393.31,75.12 L 393.36,73.91 L 393.13,72.48 L 392.77,71.27 L 392.24,69.88 L 391.79,69.03 L 391.3,68.18 L 389.86,66.17 L 387.8,63.84 L 386.86,62.9 L 384.62,60.61 L 383.42,59.27 L 381.44,56.67 L 379.97,52.37 L 380.59,48.39 L 381.94,46.06 L 383.5,44.4 L 386.91,42.03 L 390.67,40.06 L 394.39,38.45 L 399.09,36.66 L 402.45,35.67 L 405.49,35.09 L 409.43,35.0 L 411.4,35.49 L 413.68,37.15 L 415.12,39.16 L 416.06,41.4 L 416.73,43.46 L 417.58,48.39 L 417.76,54.52 L 417.67,57.39 L 416.91,65.63 L 416.6,68.4 L 416.1,72.97 L 415.52,78.21 L 414.54,87.17 L 413.37,97.87 L 412.3,104.72 L 410.55,111.75 L 408.89,117.21 L 407.42,121.6 L 403.07,133.33 L 400.3,140.14 L 397.56,146.41 L 394.56,152.68 L 376.79,175.24 L 368.59,180.8 L 363.22,183.62 L 355.21,187.42 L 350.32,189.75 L 342.4,193.69 L 335.64,197.1 L 323.5,203.18 L 320.59,204.57 L 311.41,208.69 L 303.58,211.83 L 290.81,216.13 L 277.74,219.26 L 270.75,220.42 L 264.4,221.19 L 260.05,221.63 L 250.56,222.62 L 244.69,223.56 L 241.51,224.77 L 238.34,228.48 L 235.96,232.56 L 234.71,233.86 L 233.28,234.71 L 229.74,235.6 L 227.81,235.65 L 224.95,235.29 L 221.59,234.48 L 218.9,233.86 L 216.66,233.5 L 213.3,233.37 L 212.41,233.41 L 208.47,233.81 L 202.2,234.75 L 197.9,235.42 L 188.77,236.72 L 184.06,237.31 L 176.72,238.25 L 169.51,239.05 L 167.41,239.32 L 159.8,240.13 L 153.71,240.71 L 148.2,241.2 L 141.84,241.6 L 139.56,241.74 L 134.59,242.05 L 127.42,243.31 L 120.39,247.51 L 114.57,254.14 L 109.96,261.75 L 107.09,268.69 L 105.35,274.83 L 102.88,302.28 L 107.18,314.23 L 111.84,319.29 L 114.79,325.83 L 115.96,329.41 L 117.93,335.95 L 121.15,349.29 L 122.27,355.88 L 123.26,363.76 L 123.79,369.67 L 124.02,374.64 L 123.08,382.21 L 118.69,387.04 L 117.08,393.27 L 117.44,397.07 L 118.15,401.01 L 119.67,406.74 L 120.57,409.3 L 122.94,415.03 L 126.57,421.92 L 130.24,427.3 L 136.29,434.19 L 138.39,436.07 L 144.39,439.92 L 149.05,442.48 L 154.02,445.16 L 156.71,447.0 L 159.03,449.33 L 160.15,451.43 L 160.51,453.0 L 160.38,456.04 L 159.97,457.7 L 159.26,459.31 L 158.36,460.57 L 156.57,462.18 L 154.29,463.21 L 151.15,464.01 L 149.99,464.24 L 147.12,464.55 L 145.42,464.69 L 142.96,464.87 L 138.44,465.0 L 137.59,465.0 L 133.82,464.78 L 130.87,464.37 L 127.33,463.39 L 124.82,461.73 L 123.44,459.85 L 122.63,458.24 L 121.87,455.82 L 121.42,453.85 L 120.84,451.12 L 120.35,448.7 L 118.33,442.66 L 115.64,437.86 L 110.41,430.25 L 106.11,423.36 L 102.84,416.55 L 101.49,413.1 L 99.48,407.51 L 96.61,398.42 L 94.82,392.33 L 94.02,389.5 L 90.79,377.82 L 89.4,372.4 L 86.99,361.92 L 85.37,352.29 L 84.3,342.85 L 83.45,331.29 Z" style="fill:none;stroke:none"/>
+        <path id="trackShadow"/>
+        <path id="trackWallHi"/>
+        <path id="trackWallLo"/>
+        <g id="cornerLines"></g>
+        <path id="trackGhost"/>
+        <path id="trackDraw"/>
+        <path id="trackPulse"/>
+        <g id="corners"></g>
+        <g id="sfGroup"></g>
+        <g class="trail" id="trail"></g>
+        <circle id="carRing" r="7.5" cx="-20" cy="-20"/>
+        <circle id="carDot" r="3.6" cx="-20" cy="-20"/>
+      </svg>
+    </div>
+
+    <div class="telemetry">
+      <div class="tele-cell">
+        <div class="tele-label">Lap</div>
+        <div class="tele-value" id="lapVal">0</div>
+      </div>
+      <div class="tele-cell">
+        <div class="tele-label">Last Lap</div>
+        <div class="tele-value" id="lastLap">&mdash;</div>
+      </div>
+      <div class="tele-cell">
+        <div class="tele-label">Stint Time</div>
+        <div class="tele-value" id="stintElapsed">00:00</div>
+      </div>
+      <div class="tele-cell">
+        <div class="tele-label">Status</div>
+        <div class="tele-value" id="trackStatus" style="font-size:14px;letter-spacing:.14em">IN GARAGE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RIGHT ================= -->
+  <section class="timer-pane" aria-label="Timer">
+    <button class="gear" id="gearBtn" aria-label="Settings" title="Settings">&#9881;</button>
+
+    <div class="team-row" id="teamRow" role="group" aria-label="Team theme"></div>
+
+    <div class="session-strip">
+      <div class="phase-label" id="phaseLabel">Focus Stint</div>
+      <div class="stint-count" id="stintCount">Stint 1 of 4</div>
+    </div>
+
+    <div class="clock" id="clock">
+      <div class="flip-group" id="minGroup"></div>
+      <div class="colon" id="colon"><i></i><i></i></div>
+      <div class="flip-group" id="secGroup"></div>
+    </div>
+
+    <div class="progress-zone">
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <div class="session-lights" id="sessionLights" title="Stints until long break"></div>
+    </div>
+
+    <div class="controls">
+      <button class="ctl ghost" id="resetBtn">Reset</button>
+      <button class="ctl primary" id="mainBtn">Lights Out</button>
+      <button class="ctl ghost" id="skipBtn">End Stint &rsaquo;</button>
+    </div>
+
+    <div class="fineprint">Unofficial fan project &middot; not affiliated with Formula 1, the FIA or any team &middot; your settings never leave your browser</div>
+
+    <!-- settings drawer -->
+    <aside class="drawer" id="drawer" aria-label="Settings">
+      <h2>Race Setup</h2>
+      <div class="set-row">
+        <span class="lbl">Circuit</span>
+        <div class="fontbtns" id="circuitBtns">
+          <button data-circ="monaco">Monaco</button>
+          <button data-circ="silverstone">Silverstone</button>
+        </div>
+      </div>
+      <div class="set-row">
+        <span class="lbl">Focus stint</span>
+        <div class="stepper" data-key="focus" data-min="5" data-max="90" data-step="5">
+          <button aria-label="decrease">&minus;</button>
+          <span class="val"><b>25</b><span class="unit">min</span></span>
+          <button aria-label="increase">+</button>
+        </div>
+      </div>
+      <div class="set-row">
+        <span class="lbl">Break</span>
+        <div class="stepper" data-key="short" data-min="0" data-max="30" data-step="1">
+          <button aria-label="decrease">&minus;</button>
+          <span class="val"><b>5</b><span class="unit">min</span></span>
+          <button aria-label="increase">+</button>
+        </div>
+      </div>
+      <div class="set-row">
+        <span class="lbl">Race length</span>
+        <div class="stepper" data-key="stints" data-min="1" data-max="8" data-step="1">
+          <button aria-label="decrease">&minus;</button>
+          <span class="val"><b>4</b><span class="unit">stints</span></span>
+          <button aria-label="increase">+</button>
+        </div>
+      </div>
+      <div class="set-row">
+        <span class="lbl">Display font</span>
+        <div class="fontbtns">
+          <button id="fontLoad">Load file</button>
+          <button id="fontClear">Reset</button>
+        </div>
+      </div>
+      <input type="file" id="fontFile" accept=".ttf,.otf,.woff,.woff2" hidden>
+      <div class="mute-row">
+        <span class="lbl">Radio beeps</span>
+        <div class="toggle on" id="soundToggle" role="switch" aria-checked="true" tabindex="0"></div>
+      </div>
+      <div class="close-note">Press esc or &#9881; to close</div>
+    </aside>
+  </section>
+</div>
+
+<script>
+'use strict';
+/* ================= data ================= */
+const TEAMS = [
+  {id:'mclaren',  name:'McLaren',      c:'#ff8000', glow:'rgba(255,128,0,.55)',  soft:'rgba(255,128,0,.13)',  accent:'#47c7fc'},
+  {id:'ferrari',  name:'Ferrari',      c:'#e8002d', glow:'rgba(232,0,45,.55)',   soft:'rgba(232,0,45,.12)',   accent:'#ffeb00'},
+  {id:'redbull',  name:'Red Bull',     c:'#3671c6', glow:'rgba(54,113,198,.6)',  soft:'rgba(54,113,198,.14)', accent:'#fdd900'},
+  {id:'mercedes', name:'Mercedes',     c:'#27f4d2', glow:'rgba(39,244,210,.5)',  soft:'rgba(39,244,210,.10)', accent:'#c8ccce'},
+  {id:'aston',    name:'Aston Martin', c:'#2d9c71', glow:'rgba(45,156,113,.55)', soft:'rgba(45,156,113,.13)', accent:'#cedc00'},
+];
+const PHASES = {
+  focus:{label:'Focus Stint', status:'FLYING LAP'},
+  short:{label:'Break',       status:'COOLDOWN'},
+};
+const store = {
+  get(k,f){ try{ const v=localStorage.getItem('pitwall-'+k); return v===null?f:JSON.parse(v);}catch(e){return f} },
+  set(k,v){ try{ localStorage.setItem('pitwall-'+k, JSON.stringify(v)); }catch(e){} }
+};
+const cfg = {
+  focus: store.get('focus',25),
+  short: store.get('short',5),
+  stints:store.get('stints',4),
+  sound: store.get('sound',true),
+  team:  store.get('team','mclaren'),
+  random:store.get('random',false),
+};
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ================= theme ================= */
+const teamRow = document.getElementById('teamRow');
+function applyTeam(id){
+  const t = TEAMS.find(x=>x.id===id) || TEAMS[0];
+  const r = document.documentElement.style;
+  r.setProperty('--team', t.c);
+  r.setProperty('--team-glow', t.glow);
+  r.setProperty('--team-soft', t.soft);
+  r.setProperty('--accent', t.accent);
+  document.querySelectorAll('.chip[data-team]').forEach(ch=>
+    ch.classList.toggle('active', ch.dataset.team===id && !cfg.random));
+  document.getElementById('randomChip').classList.toggle('armed', cfg.random);
+  cfg.team=id; store.set('team',id);
+  drawIn(); // re-run track draw animation on livery change
+}
+function buildChips(){
+  TEAMS.forEach(t=>{
+    const b=document.createElement('button');
+    b.className='chip'; b.dataset.team=t.id;
+    b.innerHTML=`<span class="swatch" style="--c:${t.c}"></span>${t.name}`;
+    b.addEventListener('click',()=>{ cfg.random=false; store.set('random',false); applyTeam(t.id); });
+    teamRow.appendChild(b);
+  });
+  const rnd=document.createElement('button');
+  rnd.className='chip random'; rnd.id='randomChip';
+  rnd.innerHTML='&#127922; Random';
+  rnd.title='New livery now, and a fresh one every stint — pick a team to turn off';
+  rnd.addEventListener('click',()=>{
+    cfg.random=true; store.set('random',true);
+    const others=TEAMS.filter(t=>t.id!==cfg.team); // always lands on a DIFFERENT team
+    applyTeam(others[Math.random()*others.length|0].id);
+  });
+  teamRow.appendChild(rnd);
+}
+
+/* ================= flip clock ================= */
+function makeFlip(parent){
+  const el=document.createElement('div');
+  el.className='flip';
+  el.innerHTML=
+    '<div class="piece top"><i>0</i></div>'+
+    '<div class="piece bottom"><i>0</i></div>'+
+    '<div class="piece top flap-top"><i>0</i></div>'+
+    '<div class="piece bottom flap-bottom"><i>0</i></div>';
+  parent.appendChild(el);
+  const [sTop,sBot,fTop,fBot]=[...el.querySelectorAll('.piece i')];
+  let cur='0', anim=null, first=true;
+  function instant(v){
+    sTop.textContent=v; sBot.textContent=v; fTop.textContent=v; fBot.textContent=v;
+    clearTimeout(anim); el.classList.remove('go');
+  }
+  return {
+    set(v){
+      v=String(v);
+      if(v===cur && !first) return;
+      const old=cur; cur=v;
+      if(reduced||first||document.hidden){ first=false; instant(v); return; }
+      // static top shows NEW, static bottom still OLD; flaps animate old->new
+      sTop.textContent=v;
+      fTop.textContent=old;
+      fBot.textContent=v;
+      el.classList.remove('go');
+      void el.offsetWidth;
+      el.classList.add('go');
+      clearTimeout(anim);
+      anim=setTimeout(()=>{ sBot.textContent=v; fTop.textContent=v; fBot.textContent=v; el.classList.remove('go'); }, 540);
+    },
+    sync(){ instant(cur); }
+  };
+}
+const minG=document.getElementById('minGroup'), secG=document.getElementById('secGroup');
+const digits=[makeFlip(minG),makeFlip(minG),makeFlip(secG),makeFlip(secG)];
+function renderTime(totalSec){
+  totalSec=Math.max(0,Math.round(totalSec));
+  const m=Math.floor(totalSec/60), s=totalSec%60;
+  digits[0].set(Math.floor(m/10)); digits[1].set(m%10);
+  digits[2].set(Math.floor(s/10)); digits[3].set(s%10);
+}
+
+/* ================= audio ================= */
+let actx=null;
+function beep(freq,dur,when=0,gain=.16,type='square'){
+  if(!cfg.sound) return;
+  try{
+    actx=actx||new (window.AudioContext||window.webkitAudioContext)();
+    const o=actx.createOscillator(), g=actx.createGain();
+    o.type=type; o.frequency.value=freq;
+    g.gain.setValueAtTime(gain,actx.currentTime+when);
+    g.gain.exponentialRampToValueAtTime(.0001,actx.currentTime+when+dur);
+    o.connect(g).connect(actx.destination);
+    o.start(actx.currentTime+when); o.stop(actx.currentTime+when+dur+.05);
+  }catch(e){}
+}
+function chime(kind){
+  if(kind==='focus-end'){ beep(880,.28); beep(660,.28,.3); beep(440,.5,.6); }
+  else if(kind==='race-end'){ beep(587,.16); beep(784,.16,.18); beep(988,.16,.36); beep(1175,.55,.54); } // chequered flag fanfare
+  else { beep(440,.2); beep(660,.2,.22); beep(880,.45,.44); } // back to work
+}
+
+/* ================= timer engine ================= */
+const state={
+  phase:'focus',        // focus | short | long
+  stint:1,              // 1..cfg.stints
+  running:false,
+  endTs:0,              // epoch ms when phase ends
+  remainMs:cfg.focus*60000,
+  stintStartTs:0, stintAccum:0,
+};
+const bar=document.getElementById('bar');
+const phaseLabel=document.getElementById('phaseLabel');
+const stintCount=document.getElementById('stintCount');
+const mainBtn=document.getElementById('mainBtn');
+const trackStatus=document.getElementById('trackStatus');
+
+function phaseDurMs(p=state.phase){ return {focus:cfg.focus,short:cfg.short}[p]*60000; }
+function setPhase(p,{autostart=false}={}){
+  state.phase=p;
+  state.remainMs=phaseDurMs(p);
+  state.running=false;
+  state.stintAccum=0;
+  phaseLabel.textContent=PHASES[p].label;
+  trackStatus.textContent = p==='focus' ? 'ON GRID' : PHASES[p].status;
+  updateStintUI(); renderTime(state.remainMs/1000); updateBar();
+  mainBtn.textContent = p==='focus' ? 'Lights Out' : 'Start '+PHASES[p].label;
+  document.getElementById('skipBtn').innerHTML = (p==='focus'?'End Stint':'End Break')+' &rsaquo;';
+  if(p==='focus'){
+    lapCount=0; lapPlan.length=0; planFor=0; // fresh stint, fresh lap plan (car wear carries via stintPaceMs)
+    document.getElementById('lapVal').textContent='0';
+    document.getElementById('lastLap').innerHTML='&mdash;';
+    updateLapEstimate(); // header laps reflect this stint's worn pace
+  }
+  if(autostart) startPhase();
+}
+function updateStintUI(){
+  stintCount.textContent = state.phase==='focus'
+    ? `Stint ${state.stint} of ${cfg.stints}`
+    : `After stint ${state.stint}`;
+  const sl=document.getElementById('sessionLights');
+  sl.innerHTML='';
+  for(let i=0;i<cfg.stints;i++){
+    const d=document.createElement('div');
+    d.className='slight'+((i<state.stint-1||(i===state.stint-1&&state.phase!=='focus'&&state.phase!=='idle'))?' done':'');
+    sl.appendChild(d);
+  }
+}
+function updateBar(){
+  const pct=100*(1-state.remainMs/phaseDurMs());
+  bar.style.width=Math.min(100,Math.max(0,pct))+'%';
+}
+let tickI=null;
+function startPhase(){
+  if(state.phase==='focus' && cfg.random && state.remainMs===phaseDurMs()){
+    applyTeam(TEAMS[Math.random()*TEAMS.length|0].id); // new livery only on a fresh stint, not on resume
+  }
+  state.running=true;
+  state.endTs=Date.now()+state.remainMs;
+  state.stintStartTs=Date.now();
+  mainBtn.textContent='Pause';
+  trackStatus.textContent=PHASES[state.phase].status;
+  document.getElementById('colon').classList.remove('dim');
+  clearInterval(tickI);
+  tickI=setInterval(tick,200);
+}
+function pausePhase(){
+  state.running=false;
+  state.remainMs=Math.max(0,state.endTs-Date.now());
+  state.stintAccum+=Date.now()-state.stintStartTs;
+  clearInterval(tickI);
+  mainBtn.textContent='Resume';
+  trackStatus.textContent='RED FLAG';
+  document.getElementById('colon').classList.add('dim');
+}
+function tick(){
+  state.remainMs=state.endTs-Date.now();
+  if(state.remainMs<=0){
+    state.remainMs=0; renderTime(0); updateBar();
+    clearInterval(tickI); state.running=false;
+    advance(true);
+    return;
+  }
+  renderTime(state.remainMs/1000); updateBar(); updateStintElapsed();
+}
+function updateStintElapsed(){
+  const ms=state.stintAccum+(state.running?Date.now()-state.stintStartTs:0);
+  const s=Math.floor(ms/1000);
+  document.getElementById('stintElapsed').textContent=
+    String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+}
+/* one-shot chequered-flag confetti in the current livery's colors */
+function confetti(){
+  if(reduced) return;
+  const cv=document.createElement('canvas');
+  cv.style.cssText='position:fixed;inset:0;pointer-events:none;z-index:50';
+  cv.width=innerWidth; cv.height=innerHeight;
+  document.body.appendChild(cv);
+  const x=cv.getContext('2d');
+  const cs=getComputedStyle(document.documentElement);
+  const cols=[cs.getPropertyValue('--team').trim(),cs.getPropertyValue('--accent').trim(),'#f2f0ec','#e8e6e0','#15151f'];
+  const P=[];
+  for(let i=0;i<150;i++){
+    P.push({x:cv.width*.5+(Math.random()-.5)*cv.width*.55, y:cv.height*.32,
+      vx:(Math.random()-.5)*11, vy:-(4+Math.random()*9),
+      w:5+Math.random()*6, h:3+Math.random()*4,
+      r:Math.random()*Math.PI, vr:(Math.random()-.5)*.3,
+      c:cols[Math.random()*cols.length|0]});
+  }
+  const t0=performance.now();
+  (function frame(t){
+    const el=(t-t0)/1000;
+    x.clearRect(0,0,cv.width,cv.height);
+    const a=Math.max(0,1-el/2.6);
+    let alive=false;
+    for(const p of P){
+      p.vy+=.25; p.vx*=.99; p.x+=p.vx; p.y+=p.vy; p.r+=p.vr;
+      if(a>0&&p.y<cv.height+20) alive=true;
+      x.save(); x.globalAlpha=a; x.translate(p.x,p.y); x.rotate(p.r);
+      x.fillStyle=p.c;
+      x.fillRect(-p.w/2,-p.h/2,p.w,p.h*(.4+.6*Math.abs(Math.sin(p.r*2)))); // tumble shimmer
+      x.restore();
+    }
+    if(alive) requestAnimationFrame(frame); else cv.remove();
+  })(t0);
+}
+function nextStint(){
+  state.stint = state.stint>=cfg.stints ? 1 : state.stint+1;
+  setPhase('focus');
+}
+function advance(natural){
+  if(state.phase==='focus'){
+    const finished=state.stint>=cfg.stints; // final stint done: that's the race won
+    chime(finished?'race-end':'focus-end');
+    if(cfg.short===0){ nextStint(); }      // 0-minute break: straight into the next stint
+    else setPhase('short');
+    if(finished){ trackStatus.textContent='CHEQUERED FLAG'; confetti(); }
+  }else{
+    chime('break-end');
+    nextStint();
+  }
+}
+function resetAll(){
+  clearInterval(tickI);
+  state.stint=1;
+  setPhase('focus');
+  trackStatus.textContent='IN GARAGE';
+  document.getElementById('stintElapsed').textContent='00:00';
+  document.getElementById('colon').classList.remove('dim');
+}
+
+/* start-light sequence then go — official cadence:
+   five red lights at 1-second intervals, a short random hold, then lights out */
+let lightsBusy=false, lightTimers=[];
+function abortLights(){
+  lightTimers.forEach(clearTimeout); lightTimers=[];
+  const el=document.getElementById('lights');
+  el.classList.remove('show');
+  el.querySelectorAll('.light').forEach(l=>l.classList.remove('on'));
+  lightsBusy=false;
+  mainBtn.textContent='Lights Out';
+  trackStatus.textContent='ON GRID';
+}
+function lightsOutStart(){
+  if(lightsBusy) return;
+  const el=document.getElementById('lights');
+  const ls=[...el.querySelectorAll('.light')];
+  if(reduced){ startPhase(); return; }
+  lightsBusy=true;
+  mainBtn.textContent='Abort Start';
+  el.classList.add('show');
+  drawIn(); // the line laps the whole circuit while the lights come on — then the car goes
+  ls.forEach(l=>l.classList.remove('on'));
+  ls.forEach((l,i)=>lightTimers.push(setTimeout(()=>{ l.classList.add('on'); beep(620,.22,0,.12); }, 1000*i)));
+  const hold=700+Math.random()*1800; // F1 holds all five lights a random beat before lights out
+  lightTimers.push(setTimeout(()=>{
+    ls.forEach(l=>l.classList.remove('on'));
+    beep(980,.7,0,.16);
+    setTimeout(()=>el.classList.remove('show'),400);
+    lightsBusy=false; lightTimers=[];
+    startPhase();
+  }, 1000*4+220+hold));
+}
+mainBtn.addEventListener('click',()=>{
+  if(lightsBusy){ abortLights(); return; }   // every click answers: abort the start sequence
+  if(state.running){ pausePhase(); return; }
+  if(state.phase==='focus' && state.remainMs===phaseDurMs()) lightsOutStart();
+  else startPhase();
+});
+document.getElementById('resetBtn').addEventListener('click',()=>{
+  if(lightsBusy) abortLights();
+  resetAll();
+});
+document.getElementById('skipBtn').addEventListener('click',()=>{
+  if(lightsBusy) abortLights();
+  clearInterval(tickI); state.running=false; advance(false);
+});
+
+/* ================= settings ================= */
+const drawer=document.getElementById('drawer');
+document.getElementById('gearBtn').addEventListener('click',()=>drawer.classList.toggle('open'));
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') drawer.classList.remove('open');
+  if(e.key===' '&&document.activeElement.tagName!=='BUTTON'){ e.preventDefault(); mainBtn.click(); }
+});
+document.querySelectorAll('.stepper[data-key]').forEach(st=>{
+  const key=st.dataset.key, min=+st.dataset.min, max=+st.dataset.max, step=+st.dataset.step;
+  const val=st.querySelector('.val b');
+  const unit=st.querySelector('.unit');
+  function show(){
+    const off=(key==='short'&&cfg[key]===0);
+    val.textContent=off?'Off':cfg[key];
+    unit.style.visibility=off?'hidden':'visible';
+  }
+  show();
+  const [dec,inc]=st.querySelectorAll('button');
+  function change(d){
+    cfg[key]=Math.min(max,Math.max(min,cfg[key]+d*step));
+    show(); store.set(key,cfg[key]);
+    if(key==='stints') updateStintUI();
+    else if(key===state.phase){
+      // apply to the CURRENT phase too, even mid-run: keep time already spent, adjust what remains
+      const spent=phaseElapsedMs();
+      const newRemain=cfg[key]*60000-spent;
+      if(newRemain<=0){
+        clearInterval(tickI); state.running=false;
+        renderTime(0); updateBar();
+        advance(true);
+      }else{
+        state.remainMs=newRemain;
+        if(state.running) state.endTs=Date.now()+newRemain;
+        renderTime(newRemain/1000); updateBar();
+      }
+    }
+    if(key==='focus') updateLapEstimate();
+  }
+  dec.addEventListener('click',()=>change(-1));
+  inc.addEventListener('click',()=>change(1));
+});
+const soundToggle=document.getElementById('soundToggle');
+function renderSound(){ soundToggle.classList.toggle('on',cfg.sound); soundToggle.setAttribute('aria-checked',cfg.sound); }
+soundToggle.addEventListener('click',()=>{ cfg.sound=!cfg.sound; store.set('sound',cfg.sound); renderSound(); });
+soundToggle.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();soundToggle.click();} });
+renderSound();
+
+/* ================= circuit : pseudo-3D with elevation ================= */
+const svg=document.getElementById('trackSvg');
+const src=document.getElementById('trackSrc');
+const track=document.getElementById('trackDraw');
+const ghost=document.getElementById('trackGhost');
+const shadow=document.getElementById('trackShadow');
+const wallHiEl=document.getElementById('trackWallHi');
+const wallLoEl=document.getElementById('trackWallLo');
+const pulseEl=document.getElementById('trackPulse');
+const cornersG=document.getElementById('corners');
+const linesG=document.getElementById('cornerLines');
+const sfG=document.getElementById('sfGroup');
+const carDot=document.getElementById('carDot');
+const carRing=document.getElementById('carRing');
+const trailG=document.getElementById('trail');
+let TOTAL=0, pulseAnim=null;
+const N=420, TILT=.55, EMAX=62, CY=250, WALL=10;
+const pts=[];
+/* stylized Monaco elevation: the climb from Ste Devote up to Casino,
+   the drop through Mirabeau to the hairpin and Portier, the low harbour run */
+function elevAt(t){
+  const bump=(c,w,h)=>{ let d=Math.abs(t-c); d=Math.min(d,1-d); return h*Math.exp(-(d*d)/(2*w*w)); };
+  let e=CUR.elev.base;
+  for(const b of CUR.elev.bumps) e+=bump(b[0],b[1],b[2]);
+  return e;
+}
+const SVGNS='http://www.w3.org/2000/svg';
+function mk(tag,attrs,parent){
+  const el=document.createElementNS(SVGNS,tag);
+  for(const k in attrs) el.setAttribute(k,attrs[k]);
+  parent.appendChild(el); return el;
+}
+function build3D(){
+  const L=src.getTotalLength();
+  pts.length=0;
+  let dT='',dG='';
+  for(let i=0;i<N;i++){
+    const t=i/N;
+    const p=src.getPointAtLength(t*L);
+    const gy=CY+(p.y-CY)*TILT;
+    const e=elevAt(t);
+    const ty=gy-e*EMAX;
+    pts.push({x:p.x,oy:p.y,gy:gy,ty:ty,e:e});
+    dT+=(i?'L':'M')+p.x.toFixed(2)+','+ty.toFixed(2);
+    dG+=(i?'L':'M')+p.x.toFixed(2)+','+gy.toFixed(2);
+  }
+  dT+='Z'; dG+='Z';
+  // ribbon side wall: one quad per segment, in two depth bands so the fade follows the ribbon
+  const MID=WALL*.45;
+  let dHi='',dLo='';
+  for(let i=0;i<N;i++){
+    const a=pts[i], b=pts[(i+1)%N];
+    dHi+='M'+a.x.toFixed(2)+','+a.ty.toFixed(2)
+        +'L'+b.x.toFixed(2)+','+b.ty.toFixed(2)
+        +'L'+b.x.toFixed(2)+','+(b.ty+MID).toFixed(2)
+        +'L'+a.x.toFixed(2)+','+(a.ty+MID).toFixed(2)+'Z';
+    dLo+='M'+a.x.toFixed(2)+','+(a.ty+MID).toFixed(2)
+        +'L'+b.x.toFixed(2)+','+(b.ty+MID).toFixed(2)
+        +'L'+b.x.toFixed(2)+','+(b.ty+WALL).toFixed(2)
+        +'L'+a.x.toFixed(2)+','+(a.ty+WALL).toFixed(2)+'Z';
+  }
+  track.setAttribute('d',dT); ghost.setAttribute('d',dT); pulseEl.setAttribute('d',dT);
+  shadow.setAttribute('d',dG);
+  wallHiEl.setAttribute('d',dHi);
+  wallLoEl.setAttribute('d',dLo);
+  buildCorners();
+  buildSF();
+  let x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;
+  pts.forEach(q=>{ x0=Math.min(x0,q.x); x1=Math.max(x1,q.x); y0=Math.min(y0,q.ty); y1=Math.max(y1,q.gy+WALL); });
+  const pad=26;
+  svg.setAttribute('viewBox',(x0-pad).toFixed(0)+' '+(y0-pad-56).toFixed(0)+' '+(x1-x0+2*pad).toFixed(0)+' '+(y1-y0+2*pad+68).toFixed(0));
+  TOTAL=track.getTotalLength();
+  pulseEl.setAttribute('stroke-dasharray','64 '+(TOTAL-64).toFixed(1));
+  if(pulseAnim) pulseAnim.cancel();
+  if(!reduced){
+    pulseAnim=pulseEl.animate(
+      [{strokeDashoffset:TOTAL*2},{strokeDashoffset:TOTAL}],
+      {duration:8000,iterations:Infinity,easing:'linear'});
+  }
+}
+/* the 19 official corners of Monaco, calibrated to this path (t = fraction of a lap from S/F):
+   1 Ste Dévote, 2 Beau Rivage, 3 Massenet, 4 Casino, 5 Mirabeau, 6 Fairmont Hairpin,
+   7 Mirabeau Bas, 8 Portier, 9 Tunnel, 10-11 Nouvelle Chicane, 12 Tabac,
+   13-16 Piscine complex, 17-18 La Rascasse, 19 Anthony Noghès */
+/* ================= circuits ================= */
+const CIRCUITS={
+  monaco:{
+    d:'', title:'Circuit de Monaco', sub:'Monte Carlo \u00b7 3.337 km \u00b7 19 turns',
+    eyebrow:'Round 08 \u00b7 Monaco', km:3.337, pace:75000, // ~1:15 2024 race pace
+    elev:{base:.14,bumps:[[.16,.06,1],[.30,.05,.42],[.52,.09,.14]]},
+    turns:[ // label, t along lap, leader direction, base leader length (auto-extended if the label would collide)
+  ['01',.057,'u',36],['02',.142,'u',26],['03',.221,'u',44],['04',.263,'u',22],
+  ['05',.333,'u',48],['06',.370,'u',26],['07',.391,'u',44],['08',.417,'u',22],
+  ['09',.521,'r',22],['10',.620,'u',26],['11',.628,'d',26],['12',.702,'d',24],
+  ['13',.748,'r',22],['14',.764,'r',40],['15',.801,'r',22],['16',.814,'r',40],
+  ['17',.865,'d',22],['18',.873,'d',36],['19',.896,'dl',22]
+]
+  },
+  silverstone:{ /* 1 Abbey, 2 Farm, 3 Village, 4 The Loop, 5 Aintree, 6 Brooklands, 7 Luffield,
+    8 Woodcote, 9 Copse, 10-14 Maggotts-Becketts-Chapel, 15 Stowe, 16 Vale, 17-18 Club */
+    d:'M 143.44,324.88 L 144.63,323.38 L 149.6,316.87 L 152.62,312.7 L 156.41,307.51 L 156.89,306.83 L 161.71,300.24 L 166.97,292.83 L 171.69,285.89 L 174.26,282.0 L 176.86,278.1 L 179.55,274.26 L 184.69,267.4 L 187.16,264.4 L 190.63,260.56 L 194.75,256.74 L 196.77,255.19 L 201.57,252.5 L 205.61,251.0 L 209.83,250.05 L 214.99,249.53 L 216.74,249.48 L 226.6,249.93 L 231.72,250.62 L 235.56,251.12 L 241.95,251.5 L 246.27,251.42 L 249.64,251.12 L 255.48,249.85 L 257.95,249.03 L 261.92,247.33 L 266.76,244.46 L 272.9,239.62 L 275.72,236.92 L 279.99,232.6 L 283.93,228.73 L 287.53,225.39 L 290.5,222.77 L 290.77,222.57 L 296.19,218.1 L 300.9,215.46 L 304.37,214.98 L 306.87,215.26 L 308.92,215.93 L 310.21,216.63 L 311.84,217.88 L 312.91,218.98 L 314.61,221.85 L 315.48,224.62 L 315.86,226.54 L 316.18,229.78 L 316.48,232.85 L 318.65,239.17 L 319.77,240.69 L 321.02,241.94 L 323.52,243.66 L 325.24,244.21 L 327.21,244.01 L 328.24,243.51 L 329.48,242.61 L 330.26,241.89 L 331.55,240.49 L 332.53,239.24 L 333.3,238.12 L 334.28,236.45 L 335.3,234.38 L 335.6,233.68 L 336.17,232.23 L 337.67,227.59 L 338.47,224.37 L 338.74,223.14 L 339.37,219.57 L 339.69,214.56 L 339.34,209.34 L 338.94,206.92 L 338.24,203.9 L 335.77,197.59 L 334.0,194.39 L 332.13,191.6 L 330.01,188.87 L 326.09,184.86 L 322.24,181.56 L 317.6,177.94 L 313.13,174.5 L 308.97,171.13 L 307.17,169.66 L 304.77,167.63 L 298.76,162.47 L 294.47,158.8 L 292.32,156.95 L 288.6,153.76 L 284.21,150.01 L 279.76,146.19 L 274.05,141.18 L 269.88,137.51 L 265.01,133.24 L 261.42,130.1 L 256.83,126.08 L 252.51,122.31 L 245.49,116.22 L 241.45,112.7 L 236.58,108.33 L 234.09,106.08 L 230.74,103.09 L 225.73,98.72 L 218.14,93.13 L 212.75,90.51 L 209.2,89.44 L 205.88,89.01 L 202.14,89.01 L 196.92,90.04 L 193.03,92.08 L 191.26,93.7 L 189.39,96.4 L 188.11,98.9 L 187.81,99.59 L 186.92,102.42 L 186.42,106.63 L 186.27,109.95 L 186.09,113.02 L 185.74,115.67 L 184.84,118.64 L 183.72,120.69 L 181.72,123.06 L 180.15,124.35 L 178.83,125.18 L 177.31,125.93 L 175.41,126.5 L 172.81,126.65 L 171.84,126.53 L 170.59,126.13 L 168.84,125.25 L 167.42,124.15 L 165.8,122.46 L 164.83,121.01 L 163.83,119.09 L 163.18,117.34 L 162.63,115.27 L 162.33,113.25 L 162.28,110.88 L 162.46,108.11 L 163.08,104.21 L 163.8,101.42 L 164.3,99.89 L 166.15,95.13 L 167.25,92.71 L 174.64,79.28 L 176.56,76.48 L 178.43,73.94 L 180.88,70.92 L 184.22,67.2 L 188.71,62.85 L 194.15,58.26 L 198.87,54.94 L 204.29,51.9 L 208.98,49.78 L 211.97,48.63 L 215.39,47.48 L 220.86,45.93 L 224.4,45.08 L 228.45,44.28 L 237.18,43.01 L 241.75,42.51 L 245.49,42.11 L 251.81,41.46 L 256.05,41.04 L 262.44,40.37 L 269.31,39.62 L 272.78,39.24 L 280.56,38.37 L 285.78,37.72 L 294.07,36.62 L 298.46,36.05 L 306.82,35.17 L 313.83,35.0 L 319.85,35.9 L 324.47,37.27 L 327.99,38.84 L 332.03,41.34 L 337.59,46.06 L 340.94,50.33 L 342.66,53.3 L 344.51,57.19 L 345.78,60.36 L 347.03,63.98 L 349.1,71.29 L 350.87,78.7 L 351.25,80.35 L 353.04,90.14 L 354.17,98.2 L 355.07,106.78 L 355.47,111.95 L 355.79,119.34 L 355.89,122.81 L 355.94,126.3 L 356.06,130.67 L 356.36,136.86 L 356.79,141.63 L 357.26,145.1 L 358.69,152.43 L 359.73,156.7 L 366.8,176.57 L 368.37,181.06 L 369.29,184.68 L 369.84,190.42 L 368.87,198.23 L 367.62,203.65 L 366.45,208.17 L 365.67,211.44 L 364.75,216.35 L 364.33,220.4 L 364.3,223.92 L 364.8,227.69 L 366.5,232.8 L 369.44,238.24 L 373.31,244.83 L 374.21,246.73 L 375.88,252.27 L 376.08,256.12 L 375.71,258.99 L 374.76,262.4 L 373.54,265.4 L 369.89,271.14 L 365.27,275.36 L 361.41,277.65 L 358.61,279.1 L 353.79,281.9 L 350.25,284.82 L 344.71,290.66 L 340.99,295.33 L 338.07,299.77 L 335.67,303.99 L 333.65,307.78 L 331.9,311.28 L 330.16,314.84 L 326.29,322.78 L 324.37,326.82 L 322.94,329.77 L 320.97,333.89 L 318.85,338.36 L 315.96,344.45 L 314.48,347.49 L 312.44,351.71 L 309.62,357.52 L 306.05,364.89 L 303.6,369.98 L 300.01,377.47 L 298.66,380.21 L 296.71,384.23 L 291.89,394.19 L 290.72,396.59 L 286.15,405.77 L 283.96,410.16 L 280.69,416.58 L 278.97,419.95 L 276.47,424.74 L 273.92,429.56 L 272.85,431.53 L 269.83,437.02 L 267.41,441.26 L 264.19,446.53 L 260.4,451.87 L 257.38,455.44 L 254.83,457.99 L 249.29,461.88 L 246.29,463.28 L 240.53,464.88 L 235.86,465.0 L 227.82,462.88 L 226.33,462.15 L 219.59,457.04 L 215.59,452.27 L 212.42,447.15 L 211.05,444.61 L 209.38,441.41 L 205.96,435.37 L 203.49,431.63 L 200.82,427.94 L 198.55,424.84 L 197.15,422.97 L 194.38,419.2 L 191.38,415.21 L 188.96,412.06 L 186.49,408.94 L 184.72,406.79 L 179.18,400.41 L 166.9,387.55 L 164.9,386.35 L 161.48,385.2 L 158.24,385.08 L 156.81,385.33 L 155.44,385.8 L 154.12,386.48 L 151.5,388.4 L 150.15,389.45 L 149.4,389.97 L 146.18,391.39 L 144.68,391.57 L 141.91,391.2 L 141.21,391.0 L 138.34,389.92 L 136.07,388.6 L 134.38,387.28 L 132.98,385.83 L 130.86,383.21 L 128.56,380.16 L 126.71,376.69 L 125.47,373.42 L 124.54,369.9 L 124.02,365.89 L 123.92,360.77 L 123.99,359.85 L 124.64,355.48 L 125.37,352.66 L 127.24,347.94 L 129.01,344.62 L 130.76,341.85 L 132.65,339.18 L 135.12,335.74 L 137.7,332.24 Z',
+    title:'Silverstone Circuit', sub:'Silverstone \u00b7 5.891 km \u00b7 18 turns',
+    eyebrow:'Round 12 \u00b7 Great Britain', km:5.891, pace:92000, // ~1:32 2024 race pace
+    elev:{base:.12,bumps:[[.10,.08,.15],[.53,.08,.28],[.62,.10,.22]]},
+    turns:[
+      ['01',.045,'l',22],['02',.065,'u',24],['03',.145,'dl',44],['04',.16,'dl',84],['05',.175,'r',24],
+      ['06',.325,'u',26],['07',.36,'l',22],['08',.405,'u',44],['09',.53,'u',24],
+      ['10',.585,'r',22],['11',.605,'r',40],['12',.625,'r',22],['13',.645,'r',40],['14',.665,'r',22],
+      ['15',.845,'d',22],['16',.885,'d',44],['17',.915,'dl',26],['18',.942,'l',24]
+    ]
+  }
+};
+let CUR=CIRCUITS.monaco;
+function applyCircuit(id, rebuild){
+  const c=CIRCUITS[id]; if(!c) return;
+  CUR=c; store.set('circuit',id);
+  RACE_PACE_MS=c.pace; LAP_KM=c.km;
+  src.setAttribute('d',c.d);
+  document.getElementById('gpEyebrow').textContent=c.eyebrow;
+  document.getElementById('gpTitle').textContent=c.title;
+  document.getElementById('subInfo').textContent=c.sub;
+  document.querySelectorAll('#circuitBtns button').forEach(b=>b.classList.toggle('active',b.dataset.circ===id));
+  updateLapEstimate();
+  if(rebuild!==false){ build3D(); drawIn(); }
+}
+document.querySelectorAll('#circuitBtns button').forEach(b=>b.addEventListener('click',()=>applyCircuit(b.dataset.circ)));
+function buildCorners(){
+  cornersG.innerHTML=''; linesG.innerHTML='';
+  const placed=[{x:pts[0].x-20,y:pts[0].ty-6}]; // the S/F tag counts as occupied space
+  function clearSpot(cx,cy){
+    for(let i=0;i<N;i+=2){
+      const q=pts[i];
+      if(Math.abs(q.x-cx)<17 && Math.abs(q.ty-cy)<10) return false; // on the track ribbon
+    }
+    for(const b of placed){
+      if(Math.abs(b.x-cx)<28 && Math.abs(b.y-cy)<13) return false;  // on another label
+    }
+    return true;
+  }
+  function spot(q,dir,len){ // centre of the text box a leader of this length produces
+    if(dir==='u') return {x:q.x+10,y:q.ty-len-6};
+    if(dir==='d') return {x:q.x+10,y:q.ty+len+6};
+    if(dir==='r') return {x:q.x+len+11,y:q.ty};
+    if(dir==='l') return {x:q.x-len-11,y:q.ty};
+    return {x:q.x-len*.6-9,y:q.ty+len+4};
+  }
+  CUR.turns.forEach(([num,t,dir,base])=>{
+    const q=pts[Math.round(t*N)%N];
+    let len=base;
+    for(let add=0;add<=96;add+=12){          // grow the leader until the number sits in clear space
+      const s=spot(q,dir,base+add);
+      if(clearSpot(s.x,s.y)){ len=base+add; break; }
+      len=base+add;
+    }
+    placed.push(spot(q,dir,len));
+    const dOff={u:[0,-5],d:[0,5],r:[5,0],l:[-5,0],dl:[-3.5,3.5]}[dir]||[0,-5];
+    mk('circle',{cx:q.x+dOff[0],cy:q.ty+dOff[1],r:1.5,opacity:.9},cornersG); // at the leader's foot, clear of the racing line
+    let tx=0,ty2=0,anchor='start';
+    if(dir==='u'){ mk('line',{x1:q.x,y1:q.ty-4,x2:q.x,y2:q.ty-len},linesG); tx=q.x+3; ty2=q.ty-len-2.5; }
+    else if(dir==='d'){ mk('line',{x1:q.x,y1:q.ty+4,x2:q.x,y2:q.ty+len},linesG); tx=q.x+3; ty2=q.ty+len+9; }
+    else if(dir==='r'){ mk('line',{x1:q.x+4,y1:q.ty,x2:q.x+len,y2:q.ty},linesG); tx=q.x+len+2.5; ty2=q.ty+3; }
+    else if(dir==='l'){ mk('line',{x1:q.x-4,y1:q.ty,x2:q.x-len,y2:q.ty},linesG); tx=q.x-len-2.5; ty2=q.ty+3; anchor='end'; }
+    else{ mk('line',{x1:q.x-3,y1:q.ty+3,x2:q.x-len*.6,y2:q.ty+len},linesG); tx=q.x-len*.6-2; ty2=q.ty+len+7; anchor='end'; }
+    const el=mk('text',{x:tx,y:ty2,'font-size':'8.5','text-anchor':anchor},cornersG);
+    el.textContent=num;
+  });
+}
+function buildSF(){
+  sfG.innerHTML='';
+  const p0=carPos(0), p1=carPos(2/N);
+  const deg=Math.atan2(p1.y-p0.y,p1.x-p0.x)*180/Math.PI;
+  // checkered start line painted ON the track, perpendicular to the racing line
+  const g=mk('g',{transform:'translate('+p0.x.toFixed(2)+' '+p0.y.toFixed(2)+') rotate('+deg.toFixed(1)+')'},sfG);
+  mk('rect',{x:-2,y:-5.5,width:4,height:11,fill:'url(#checkers)',opacity:.95},g);
+  const tx=mk('text',{x:p0.x-8,y:p0.y-6,'font-size':'8','text-anchor':'end'},sfG);
+  tx.textContent='S/F';
+}
+function carPos(t){
+  const f=(((t%1)+1)%1)*N;
+  const i0=Math.floor(f)%N, i1=(i0+1)%N, fr=f-Math.floor(f);
+  const a=pts[i0], b=pts[i1];
+  return {x:a.x+(b.x-a.x)*fr, y:a.ty+(b.ty-a.ty)*fr};
+}
+const TRAIL_N=26;
+const trail=[];
+for(let i=0;i<TRAIL_N;i++){
+  const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+  const f=i/TRAIL_N;
+  c.setAttribute('r',(2.6*(1-f)+.4).toFixed(2));
+  c.setAttribute('opacity',(0.42*(1-f)).toFixed(3));
+  c.setAttribute('cx',-20); c.setAttribute('cy',-20);
+  trailG.appendChild(c); trail.push(c);
+}
+const hist=[];
+function drawIn(){
+  if(!TOTAL) return;
+  if(reduced){ track.style.strokeDasharray='none'; return; }
+  track.style.transition='none';
+  track.style.strokeDasharray=TOTAL;
+  track.style.strokeDashoffset=TOTAL;
+  void track.getBoundingClientRect();
+  track.style.transition='stroke-dashoffset 2s cubic-bezier(.6,.05,.2,1), stroke .5s ease';
+  track.style.strokeDashoffset='0';
+}
+/* car lap loop — laps are derived from the wall clock, never from frame rate */
+let lapCount=0;
+const lapVal=document.getElementById('lapVal');
+const lastLapEl=document.getElementById('lastLap');
+let RACE_PACE_MS=75000; // representative 2024 Monaco race pace, ~1:15 (race laps ran 1:14–1:18)
+const STINT_WEAR=.03;     // car wear carried between stints: each stint's baseline ~3% slower
+function stintPaceMs(){ return RACE_PACE_MS*(1+STINT_WEAR*(state.stint-1)); } // resets with a new race
+let LAP_KM=3.337;
+
+/* Tyre-degradation lap plan: each stint gets its own pace and its own number of laps,
+   but the laps always sum EXACTLY to the stint length — the car takes the flag as the
+   timer hits zero. Lap 1 is slower on cold tyres; every lap after degrades a little. */
+let lapPlan=[], planFor=0; // cumulative lap-end times (ms), and the duration they were built for
+function maxLapsFor(D){ // laps promised in the header and delivered on track: stint ÷ this stint's worn pace, rounded
+  return Math.max(1,Math.round(D/stintPaceMs()));
+}
+function buildLapPlan(D){
+  const n=maxLapsFor(D);
+  let deg=.006+Math.random()*.010;                    // tyre degradation per lap: 0.6% – 1.6%
+  deg=Math.min(deg,.18/n);                            // cap total wear on long stints so early laps stay realistic
+  const w=[];
+  for(let k=0;k<n;k++){
+    let x=1+deg*k+(Math.random()*.012-.006);          // wear + lap-to-lap noise
+    if(k===0) x+=.02;                                 // out-lap on cold tyres
+    w.push(x);
+  }
+  const S=w.reduce((a,b)=>a+b,0);
+  const plan=[]; let acc=0;
+  for(let k=0;k<n;k++){ acc+=D*w[k]/S; plan.push(acc); }
+  plan[n-1]=D;                                        // exact finish on the line
+  return plan;
+}
+/* mid-stint duration edit: keep the laps already driven, re-plan only what's left —
+   and never let the remaining laps run faster than the last one completed */
+function replanFrom(plan,done,D){
+  done=Math.min(done,plan.length);
+  const prefix=plan.slice(0,done);
+  const start=done?prefix[done-1]:0;
+  const R=D-start;
+  if(R<=0) return prefix.length?prefix:[D];
+  const lastLap=done?(plan[done-1]-(done>1?plan[done-2]:0)):stintPaceMs();
+  const a=lastLap*1.002;                      // hard floor: no remaining lap quicker than the last one driven
+  let m=Math.max(1,Math.floor(R/(a*1.01)));
+  let extra=R-m*a;
+  if(extra<0){ m=1; extra=0; }
+  const u=[];
+  for(let k=0;k<m;k++) u.push((k+1)*(1+Math.random()*.06)); // rising share of the surplus = degradation
+  const S=u.reduce((x,y)=>x+y,0);
+  const out=prefix.slice();
+  let acc=start;
+  for(let k=0;k<m;k++){ acc+=(m===1?R:a+extra*u[k]/S); out.push(acc); }
+  out[out.length-1]=D;
+  return out;
+}
+function updateLapEstimate(){
+  const D=cfg.focus*60000, n=maxLapsFor(D);
+  document.getElementById('lapEst').innerHTML=
+    `&middot; ${cfg.focus} min &middot; ${n} laps / ${(n*LAP_KM).toFixed(1)} km`;
+}
+function fmtLap(ms){
+  const s=ms/1000;
+  return Math.floor(s/60)+':'+ (s%60).toFixed(1).padStart(4,'0');
+}
+function phaseElapsedMs(){
+  return state.stintAccum+(state.running?Date.now()-state.stintStartTs:0);
+}
+function loop(){
+  requestAnimationFrame(loop);
+  if(!pts.length) return;
+  let t=0, moving=false;
+  if(state.phase==='focus'){
+    const D=phaseDurMs();
+    if(D!==planFor){
+      lapPlan=(!lapPlan.length||lapCount===0)?buildLapPlan(D):replanFrom(lapPlan,lapCount,D);
+      planFor=D;
+    }
+    const el=Math.min(phaseElapsedMs(),D);
+    let done=0;
+    while(done<lapPlan.length && el>=lapPlan[done]) done++;
+    if(done>lapCount){
+      lapCount=done; lapVal.textContent=done;
+      lastLapEl.textContent=fmtLap(lapPlan[done-1]-(done>1?lapPlan[done-2]:0));
+    }
+    if(done>=lapPlan.length){ t=0; }                       // stint over: car on the line
+    else{
+      const s=done?lapPlan[done-1]:0;
+      t=(el-s)/(lapPlan[done]-s);
+    }
+    moving=state.running;
+  }else if(phaseDurMs()>0){
+    // break: one slow ceremonial cooldown lap, paced to fill the whole break exactly
+    const D=phaseDurMs();
+    const el=Math.min(phaseElapsedMs(),D);
+    t=el/D;
+    moving=state.running;
+  }
+  const p=carPos(t);
+  carDot.setAttribute('cx',p.x); carDot.setAttribute('cy',p.y);
+  carRing.setAttribute('cx',p.x); carRing.setAttribute('cy',p.y);
+  if(!reduced){
+    if(moving){
+      hist.unshift([p.x,p.y]);
+      if(hist.length>TRAIL_N*2) hist.length=TRAIL_N*2;
+    }else hist.length=0;
+    for(let i=0;i<TRAIL_N;i++){
+      const h=hist[i*2]||[p.x,p.y];
+      trail[i].setAttribute('cx',h[0]); trail[i].setAttribute('cy',h[1]);
+    }
+  }
+}
+
+/* keep clock crisp after the tab was backgrounded (throttled timers desync flip animations) */
+document.addEventListener('visibilitychange',()=>{
+  if(!document.hidden){
+    if(state.running){ state.remainMs=state.endTs-Date.now(); }
+    renderTime(Math.max(0,state.remainMs)/1000);
+    digits.forEach(d=>d.sync());
+    updateBar();
+  }
+});
+
+/* custom display font: the viewer supplies a font file they already own —
+   nothing is distributed with this site; the file stays in their browser. */
+function b64FromBuf(buf){
+  const u=new Uint8Array(buf); let s='';
+  for(let i=0;i<u.length;i+=0x8000) s+=String.fromCharCode.apply(null,u.subarray(i,i+0x8000));
+  return btoa(s);
+}
+function bufFromB64(b){
+  const s=atob(b), u=new Uint8Array(s.length);
+  for(let i=0;i<s.length;i++) u[i]=s.charCodeAt(i);
+  return u.buffer;
+}
+async function applyCustomFont(buf){
+  const f=new FontFace('PW Custom',buf);
+  await f.load(); document.fonts.add(f);
+  document.documentElement.style.setProperty('--dispfont','"PW Custom"');
+  calibrateInk('"PW Custom"');
+}
+const fontInput=document.getElementById('fontFile');
+document.getElementById('fontLoad').addEventListener('click',()=>fontInput.click());
+document.getElementById('fontClear').addEventListener('click',()=>{
+  document.documentElement.style.removeProperty('--dispfont');
+  try{localStorage.removeItem('pitwall-customfont');}catch(e){}
+  calibrateInk("'PW Black'");
+});
+fontInput.addEventListener('change',async()=>{
+  const f=fontInput.files[0]; if(!f) return;
+  try{
+    const buf=await f.arrayBuffer();
+    await applyCustomFont(buf);
+    try{localStorage.setItem('pitwall-customfont',b64FromBuf(buf));}catch(e){}
+  }catch(e){}
+});
+/* optical digit centering, computed for whatever display font is active */
+function calibrateInk(){
+  try{
+    // which display font is actually rendering? (bundled Titillium digits measure 500 units @100px)
+    const x=document.createElement('canvas').getContext('2d');
+    x.font='100px "PW Custom","PW Black"';
+    const w=x.measureText('0123456789').width;
+    const isBundled=Math.abs(w-550)<12;
+    // pixel-measured optical nudges: bundled Titillium vs Formula 1 Display (local or user-loaded)
+    document.documentElement.style.setProperty('--inknudge', isBundled?'-.0326em':'-.016em');
+  }catch(e){}
+}
+document.fonts.ready.then(()=>{
+  try{
+    const saved=localStorage.getItem('pitwall-customfont');
+    if(saved){ applyCustomFont(bufFromB64(saved)); return; }
+  }catch(e){}
+  calibrateInk("'PW Black'");
+});
+
+/* ================= boot ================= */
+CIRCUITS.monaco.d=src.getAttribute('d');
+applyCircuit(CIRCUITS[store.get('circuit','monaco')]?store.get('circuit','monaco'):'monaco', false);
+buildChips();
+applyTeam(cfg.team);
+updateLapEstimate();
+setPhase('focus');
+requestAnimationFrame(()=>{
+  build3D();
+  const p=carPos(0);
+  carDot.setAttribute('cx',p.x); carDot.setAttribute('cy',p.y);
+  carRing.setAttribute('cx',p.x); carRing.setAttribute('cy',p.y);
+  trail.forEach(c=>{ c.setAttribute('cx',p.x); c.setAttribute('cy',p.y); });
+  drawIn();
+  requestAnimationFrame(loop);
+});
+</script>
+
+</body>
+</html>
